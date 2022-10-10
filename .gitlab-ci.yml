@@ -2,10 +2,9 @@ stages:
     - build
 
 Build container:
-  image: docker:20.10.18
   stage: build
-  services:
-    - docker:dind
+  tags:
+    - shell-runner
   script:
     - docker login -u alexander -p $CI_PASSWORD $CI_REGISTRY
 
