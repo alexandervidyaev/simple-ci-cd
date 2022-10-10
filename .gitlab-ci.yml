@@ -4,7 +4,7 @@ stages:
 Build container:
   stage: build
   tags:
-    - shell-runner
+    - ssh-runner
   script:
     - docker login -u alexander -p $CI_PASSWORD $CI_REGISTRY
 
