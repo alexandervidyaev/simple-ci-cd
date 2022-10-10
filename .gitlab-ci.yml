@@ -31,7 +31,7 @@ Deploy container:
     - ssh-keyscan $SERVER >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts  
   script:
-    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USERNAME@$SERVER "echo 1 > /root/123.txt"
+    - ssh -i $SSH_PRIVATE_KEY -o StrictHostKeyChecking=no $USERNAME@$SERVER "echo 1 > /home/deployer/123.txt"
 #    - ssh -o StrictHostKeyChecking=no root@10.7.160.19 "touch /root/foo.txt"
 
    
