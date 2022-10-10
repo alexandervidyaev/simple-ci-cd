@@ -1,13 +1,12 @@
 stages:
-    - test
     - build
 
-test my pipeline:
-    stage: test
-    script:
-        echo "lul"
+Build container:
+  image: docker:20.10.18
+  stage: build
+  services:
+    - docker:dind
+  script:
+    - docker login -u alexander -p $CI_PASSWORD $CI_REGISTRY
 
-build project:
-    stage: build
-    script:
-        echo "build is done"       
+  
