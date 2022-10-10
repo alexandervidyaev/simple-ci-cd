@@ -2,12 +2,10 @@ stages:
     - test
     - build
 
-
 test my pipeline:
     stage: test
     script:
         echo "lul"
-
 
 build project:
     stage: build
