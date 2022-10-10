@@ -1,15 +1,15 @@
 stages:
     - test
-    - test-lul
+    - build
 
 
-proverka:
+test my pipeline:
     stage: test
     script:
         echo "lul"
 
 
- build:
+build project:
     stage: test-lul
     script:
         echo "build is done"       
