@@ -31,7 +31,7 @@ Deploy container:
     - ssh-keyscan $SERVER >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
-  - ssh $USER@$SERVER "hostname && echo 'Welcome!!!' > welcome.txt" 
+    - ssh $USER@$SERVER "hostname && echo 'Welcome!!!' > welcome.txt" 
  
 
 
