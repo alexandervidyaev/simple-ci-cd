@@ -1,0 +1,15 @@
+stages:
+    - test
+    - test-lul
+
+
+proverka:
+    stage: test
+    script:
+        echo "lul"
+
+
+ build:
+    stage: test-lul
+    script:
+        echo "build is done"       
