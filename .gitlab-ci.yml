@@ -9,6 +9,6 @@ Build container:
   services:
     - docker:dind
   script:
-    - docker build -t ${CI_REGISTRY}/${CI_REGISTRY_USER}/${CI_PROJECT_NAME} .
+    - docker build -t ${CI_REGISTRY}/${GITLAB_USER_LOGIN}/${CI_PROJECT_NAME} .
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
   
