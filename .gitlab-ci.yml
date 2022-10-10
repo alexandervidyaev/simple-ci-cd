@@ -10,6 +10,6 @@ test my pipeline:
 
 
 build project:
-    stage: test-lul
+    stage: build
     script:
         echo "build is done"       
