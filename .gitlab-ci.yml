@@ -1,5 +1,6 @@
 stages:
   - build
+  - deploy
 
 variables:
   NAME: my-nginx
@@ -15,3 +16,23 @@ Build container:
     - docker build -t $CI_REGISTRY/$GITLAB_USER_LOGIN/$CI_PROJECT_NAME/$NAME:$CI_COMMIT_SHORT_SHA .
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
     - docker push $CI_REGISTRY/$GITLAB_USER_LOGIN/$CI_PROJECT_NAME/$NAME:$CI_COMMIT_SHORT_SHA
+
+Deploy container
+  stage: deploy
+  tags:
+    - docker-runner
+  image: alpine:3.15
+  script:
+    - apk update && apk add openssh-client
+    - chmod og= $SSH_KEYGEN
+    - ssh -i $SSH_KEYGEN-o StrictHostKeyChecking=no $USER@$SERVER "echo 1 > /home/deployer/lol.txt"
+
+
+
+
+
+
+
+
+
+
