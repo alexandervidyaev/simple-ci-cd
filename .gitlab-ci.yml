@@ -6,6 +6,5 @@ Build container:
   tags:
     - ssh-runner
   script:
-    - echo lol > /root/lol.txt
-
+    - docker login -u gitlab-ci-token -p $CI_PASSWORD $CI_REGISTRY
   
