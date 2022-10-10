@@ -6,7 +6,7 @@ Build container:
   tags:
     - shell-runner
   script:
-    - docker build -t ${CI_REGISTRY}/${CI_DEPLOY_USER}/${CI_DEFAULT_BRANCH} .
+    - docker build -t gitlab.corp.local:5050/alexander/simple-cicd .
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
 
 
