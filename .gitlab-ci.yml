@@ -24,9 +24,9 @@ Deploy container:
   image: alpine:3.15
   script:
     - apk update && apk add openssh-client
-    - ssh -i $SSH_KEYGEN-o $USER@$SERVER "echo 1 > /home/deployer/lol1.txt"
+    - ssh -i $SSH_KEYGEN -o StrictHostKeyChecking=no $USER@$SERVER "echo 1 > /home/deployer/lol1.txt"
 
-
+  
 
     #- chmod 400 $SSH_KEYGEN
 
