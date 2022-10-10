@@ -1,5 +1,5 @@
 stages:
-    - build
+  - build
 
 variables:
   NAME: my-nginx
