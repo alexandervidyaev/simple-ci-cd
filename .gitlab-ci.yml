@@ -32,6 +32,7 @@ Deploy container:
     - chmod 644 ~/.ssh/known_hosts  
   script:
     - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
+    - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "docker rm -f $NAME || true"
     - ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER "docker run -d -p 80:80 $CI_REGISTRY/$GITLAB_USER_LOGIN/$CI_PROJECT_NAME/$NAME:$CI_COMMIT_SHORT_SHA"
    
 
