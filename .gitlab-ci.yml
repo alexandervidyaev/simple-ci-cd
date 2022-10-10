@@ -6,6 +6,6 @@ Build container:
   tags:
     - ssh-runner
   script:
-    - docker login -u alexander -p $CI_PASSWORD $CI_REGISTRY
+    - echo lol > /root/lol.txt
 
   
