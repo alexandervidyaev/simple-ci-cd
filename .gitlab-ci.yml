@@ -2,11 +2,9 @@ stages:
     - build
 
 variables:
-  TAG_LATEST: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:latest
-  TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
+  NAME: my-nginx
 
 Build container:
-  env: 
   stage: build
   tags:
     - docker-runner
@@ -14,6 +12,5 @@ Build container:
   services:
     - docker:dind
   script:
-    - docker build -t $TAG_COMMIT -t $TAG_LATEST .
+    - docker build -t $CI_REGISTRY/$GITLAB_USER_LOGIN/$CI_PROJECT_NAME/$NAME:$CI_COMMIT_SHORT_SHA .
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker push $TAG_COMMIT -t $TAG_LATEST .
